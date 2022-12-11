@@ -4,9 +4,9 @@
 # COMMAND ----------
 
 # Set the broker & topic name
-topic="topic_nov21"
-write_topic ="ktopictarget02"
-broker="pkc-ldvr1.asia-southeast1.gcp.confluent.cloud:9092"
+topic="topic_source"
+write_topic ="topic_target"
+broker="<broker-server>:9092"
 streamdataout1="bronze_stream_f1"
 
 
