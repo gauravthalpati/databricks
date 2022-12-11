@@ -10,7 +10,7 @@
 # COMMAND ----------
 
 # File location and type
-file_location = "/nov2022/input/people2.json"
+file_location = "/2022/input/people2.json"
 file_type = "json"
 
 # CSV options
@@ -39,16 +39,16 @@ df.write.format("json").saveAsTable(permanent_table_name)
 
 # COMMAND ----------
 
-dbutils.fs.cp("nov2022/input/people.json", "/FileStore/mydata/people.json")
+dbutils.fs.cp("2022/input/people.json", "/FileStore/mydata/people.json")
 
 
 # COMMAND ----------
 
-# Download using link https://dbc-874f2384-98db.cloud.databricks.com/files/mydata/
+# Download using link https://<db-instance>.cloud.databricks.com/files/mydata/
 
 # COMMAND ----------
 
-dbutils.fs.cp("/FileStore/tables/people2.json","nov2022/input/people2.json")
+dbutils.fs.cp("/FileStore/tables/people2.json","2022/input/people2.json")
 
 # COMMAND ----------
 
