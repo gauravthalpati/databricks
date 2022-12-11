@@ -1,3 +1,3 @@
-# Set the API keys
-confluentApiKey = "aaa"
-confluentSecret = "aaa"
+# Set the API keys, if using confluent kafka then take these from confluent portal
+confluentApiKey = "???"
+confluentSecret = "???"
