@@ -70,9 +70,6 @@ DESCRIBE STORAGE CREDENTIAL `unity-cred`;
 
 SHOW GRANTS `account users` ON STORAGE CREDENTIAL `unity-cred`;
 
--- COMMAND ----------
-
-SHOW GRANTS `g.thalpati@gmail.com` ON STORAGE CREDENTIAL `unity-cred`;
 
 -- COMMAND ----------
 
@@ -89,7 +86,7 @@ show tables;
 -- Working Solution ---
 CREATE TABLE if not exists demo_table1
   (role_id Int, role_name String) 
-  location "s3://databricks-demounity-22/demodata/" 
+  location "s3://<s3-bucket-name>/demodata/" 
   
 
  
