@@ -5,7 +5,7 @@
 
 # Set the broker & topic name
 topic="ktopic01"
-broker="pkc-ldvr1.asia-southeast1.gcp.confluent.cloud:9092"
+broker="<broker-server>:9092"
 
 
 # COMMAND ----------
