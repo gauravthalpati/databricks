@@ -6,7 +6,7 @@
 
 # MAGIC %sh
 # MAGIC 
-# MAGIC ls -l fbf6790d-5b30-4282-9e28-e66f30768b34
+# MAGIC ls -l <pipeline-id>
 
 # COMMAND ----------
 
