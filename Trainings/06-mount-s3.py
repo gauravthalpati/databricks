@@ -4,7 +4,7 @@
 # MAGIC # Configure Secrets in Scope
 
 # COMMAND ----------
-
+# Follow below steps to create secret using CLI using Web terminal
 # databricks secrets create-scope --scope awskeys
 # databricks secrets list-scopes
 
@@ -27,8 +27,8 @@ display(secret_key)
 
 # COMMAND ----------
 
-aws_bucket_name = "databricks-alldata-22"
-mount_name = "mydatastore2"
+aws_bucket_name = "<bucket-name>"
+mount_name = "mydatastore"
 
 # COMMAND ----------
 
@@ -43,4 +43,4 @@ display(dbutils.fs.ls(f"/mnt/{mount_name}"))
 
 # COMMAND ----------
 
-display(dbutils.fs.ls(f"/mnt/mydatastore2"))
+display(dbutils.fs.ls(f"/mnt/mydatastore"))
