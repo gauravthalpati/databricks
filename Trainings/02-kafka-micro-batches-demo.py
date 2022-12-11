@@ -1,11 +1,13 @@
 # Databricks notebook source
+# Get the credentials from creds notebooks
 # MAGIC %run ./00-my-creds
+
 
 # COMMAND ----------
 
 # Set the broker & topic name
 topic="ktopic01"
-broker="pkc-ldvr1.asia-southeast1.gcp.confluent.cloud:9092"
+broker="<broker-server>:9092"
 dataout1="bronze_f13"
 dataout2="bronze_f14"
 
@@ -44,7 +46,7 @@ display(df2)
 
 # Write the data using checkpointing for output file 
 stream = df2.writeStream.format("delta") \
-            .option("checkpointLocation", "/nov2022/checkpoint/{}_{}".format(topic,dataout1)) \
+            .option("checkpointLocation", "/2022/checkpoint/{}_{}".format(topic,dataout1)) \
             .trigger (once = True) \
             .start("/nov2022/output/{}_{}".format(topic,dataout1)) \
             .awaitTermination()
@@ -61,14 +63,14 @@ stream = df2.writeStream.format("delta") \
 
 # COMMAND ----------
 
-display(dbutils.fs.ls("/nov2022/output/{}_{}".format(topic,dataout1)))
+display(dbutils.fs.ls("/2022/output/{}_{}".format(topic,dataout1)))
 
 # COMMAND ----------
 
 # MAGIC %sql
 # MAGIC 
 # MAGIC --Query the delta file using SQL
-# MAGIC select * from delta.`dbfs:/nov2022/output/ktopic01_bronze_f13`
+# MAGIC select * from delta.`dbfs:/2022/output/ktopic01_bronze_f13`
 
 # COMMAND ----------
 
@@ -76,7 +78,7 @@ display(dbutils.fs.ls("/nov2022/output/{}_{}".format(topic,dataout1)))
 # MAGIC -- Create delta table from the file
 # MAGIC 
 # MAGIC create table if not exists bronzet1
-# MAGIC location 'dbfs:/nov2022/output/ktopic01_bronze_f1'
+# MAGIC location 'dbfs:/2022/output/ktopic01_bronze_f1'
 
 # COMMAND ----------
 
@@ -93,7 +95,7 @@ dataout2="bronze_f11"
 
 # Write the data using checkpointing for output file 
 stream = df2.writeStream.format("delta") \
-            .option("checkpointLocation", "/nov2022/checkpoint/{}_{}".format(topic,dataout2)) \
+            .option("checkpointLocation", "/2022/checkpoint/{}_{}".format(topic,dataout2)) \
             .trigger (once = True) \
             .start("/nov2022/output/{}_{}".format(topic,dataout2)) \
             .awaitTermination()
@@ -101,7 +103,7 @@ stream = df2.writeStream.format("delta") \
 
 # COMMAND ----------
 
-display(dbutils.fs.ls("/nov2022/output/{}_{}".format(topic,dataout2)))
+display(dbutils.fs.ls("/2022/output/{}_{}".format(topic,dataout2)))
 
 # COMMAND ----------
 
